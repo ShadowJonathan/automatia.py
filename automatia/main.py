@@ -1,9 +1,10 @@
 from __future__ import print_function
+
 import sys
-import six
 
 CLI = False
 DEBUG = False
+AUTO = False
 
 
 def eprint(*args, **kwargs):
@@ -17,6 +18,15 @@ def setdebug(state):
     Debug("Python:")
     for p in sys.version.split("\n"):
         Debug(p)
+
+
+def setauto(state):
+    global AUTO
+    AUTO = state
+
+def isauto():
+    global AUTO
+    return AUTO
 
 
 def setcli():

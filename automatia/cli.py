@@ -18,6 +18,11 @@ if "-D" in args:
     automatia.Inform("Debug ON")
     automatia.setdebug(True)
 
+if "-a" in args:
+    args.remove("-a")
+    automatia.Inform("Automatic mode ON")
+    automatia.setauto(True)
+
 first_arg = len(args) > 0 and args[0] or None
 
 
@@ -55,8 +60,13 @@ def main():
                                                                                                     fr.URL), True):
                 do(param.Param(fr.URL, p.cmds[:]))
 
-    for p in params:
-        do(p)
+    try:
+        for p in params:
+            do(p)
+    except KeyboardInterrupt:
+        print(" ")
+        automatia.Inform("Interrupted by user")
+        exit(0)
 
     automatia.Debug("Finished")
 

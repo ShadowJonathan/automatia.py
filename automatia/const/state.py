@@ -18,7 +18,7 @@ class Fail(State):
         self.reason = reason
 
     def explain(self):
-        return " ".join([str(r) for r in self.reason])
+        return " ".join([r.__repr__() for r in self.reason])
 
 
 class Result(State):
