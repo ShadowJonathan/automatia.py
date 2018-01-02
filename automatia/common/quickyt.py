@@ -55,6 +55,7 @@ class YTModule(AutomatiaModule):
 
         opt = {
             'format': 'best[height<800]',
+            'outtmpl': '%(title)s.%(ext)s'
             'logger': MyLogger(),
             'progress_hooks': [hook]
         }
